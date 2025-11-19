@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookEcho – Contact Us</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <style>
+       
+:root {
+    --bg-main: #F8F4EC;
+    --bg-secondary: #FFFFFF;
+    --accent: #C7A27A;
+    --accent-light: #E5D4C3;
+    --text-dark: #1E2D3D;
+    --text-light: #6F6257;
+}
+
+body {
+    background: var(--bg-main);
+    margin: 0;
+    font-family: "Georgia", serif;
+    color: var(--text-dark);
+}
+
+
+.navbar {
+    padding: 25px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-main);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: var(--accent);
+}
+
+.nav-icons i {
+    font-size: 22px;
+    margin-left: 18px;
+}
+
+
+.contact-hero {
+    text-align: center;
+    padding: 50px 6% 40px;
+}
+
+.contact-hero h1 {
+    font-size: 52px;
+}
+
+.contact-hero p {
+    max-width: 650px;
+    margin: 10px auto 0;
+    color: var(--text-light);
+    font-size: 18px;
+}
+
+.contact-grid {
+    padding: 40px 6% 80px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 30px;
+}
+
+
+.contact-card,
+.map-card,
+.faq-card {
+    background: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+
+.form-card h2 {
+    margin-bottom: 25px;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group {
+    flex: 1;
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: inherit;
+    border: 1px solid var(--accent-light);
+    background: #F3F0EA;
+}
+
+textarea {
+    resize: none;
+}
+
+.send-btn {
+    padding: 12px 25px;
+    background: var(--accent);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.send-btn:hover {
+    background: var(--accent-light);
+    color: var(--text-dark);
+}
+
+.info-card h2 {
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.info-item i {
+    font-size: 24px;
+    color: var(--accent);
+}
+
+.info-item h4 {
+    margin-bottom: 3px;
+}
+
+.info-item p {
+    margin: 0;
+    color: var(--text-light);
+}
+
+
+.map-card {
+    text-align: center;
+    background: #F3F0EA;
+}
+
+.map-icon {
+    font-size: 40px;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.map-text {
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.map-sub {
+    margin-top: 5px;
+    color: var(--text-light);
+}
+
+
+.faq-card h2 {
+    margin-bottom: 20px;
+}
+
+.faq-card h4 {
+    margin-top: 18px;
+    margin-bottom: 5px;
+}
+
+.faq-card p {
+    color: var(--text-light);
+}
+
+
+@media (max-width: 1000px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .row {
+        flex-direction: column;
+    }
+}
+a{
+    color: var(--text-dark);
+    text-decoration: none;
+}
+    </style>
+</head>
+
+<body>
+
+
+    <header class="navbar">
+        <div class="logo">BookEcho</div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a class="active" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-icons">
+           <i class="ri-search-line"></i>
+            <a href="info.html"><i class="ri-user-line"></i></a>
+            <a href="cart.html"><i class="ri-shopping-cart-line"></i></a>
+
+        </div>
+    </header>
+
+  
+    <section class="contact-hero">
+        <h1>Get in Touch</h1>
+        <p>Have a question or just want to chat about books? We'd love to hear from you.</p>
+    </section>
+
+    <section class="contact-grid">
+
+       
+        <div class="contact-card form-card">
+            <h2>Send us a Message</h2>
+
+            <form>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="John">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Doe">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="you@example.com">
+                </div>
+
+                <div class="input-group">
+                    <label>Phone (Optional)</label>
+                    <input type="text" placeholder="+1 (555) 000-0000">
+                </div>
+
+                <div class="input-group">
+                    <label>Subject</label>
+                    <input type="text" placeholder="How can we help?">
+                </div>
+
+                <div class="input-group">
+                    <label>Message</label>
+                    <textarea rows="4" placeholder="Tell us more about your inquiry..."></textarea>
+                </div>
+
+                <button class="send-btn">Send Message</button>
+
+            </form>
+        </div>
+
+        
+        <div class="contact-card info-card">
+
+            <h2>Contact Information</h2>
+
+            <div class="info-item">
+                <i class="ri-mail-line"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>hello@bookecho.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="ri-phone-line"></i>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="ri-map-pin-line"></i>
+                <div>
+                    <h4>Address</h4>
+                    <p>18 Residency Road<br>Connaught Place, New Delhi 110001<br>India</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="ri-time-line"></i>
+                <div>
+                    <h4>Store Hours</h4>
+                    <p>
+                        Monday - Friday: 9:00 AM – 8:00 PM <br>
+                        Saturday: 10:00 AM – 6:00 PM <br>
+                        Sunday: 11:00 AM – 5:00 PM
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+   
+        <div class="map-card">
+            <i class="ri-map-pin-2-line map-icon"></i>
+            <p class="map-text">Interactive map would be displayed here</p>
+            <p class="map-sub">18 Residency Road, Connaught Place, New Delhi 110001</p>
+        </div>
+
+
+        <div class="faq-card">
+            <h2>Quick Answers</h2>
+
+            <h4>Do you ship internationally?</h4>
+            <p>Yes, we ship to most countries worldwide.</p>
+
+            <h4>What’s your return policy?</h4>
+            <p>Free returns within 30 days of purchase.</p>
+
+            <h4>Do you have a physical store?</h4>
+            <p>Yes, visit us at our San Francisco location!</p>
+        </div>
+
+    </section>
+
+</body>
+</html>

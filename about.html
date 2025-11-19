@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookEcho – Our Story</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+   <style>
+
+:root {
+    --bg-main: #F8F4EC;
+    --bg-secondary: #FFFFFF;
+    --accent: #C7A27A;
+    --accent-light: #E5D4C3;
+    --text-dark: #1E2D3D;
+    --text-light: #6F6257;
+}
+
+
+body {
+    background: var(--bg-main);
+    margin: 0;
+    font-family: "Georgia", serif;
+}
+
+
+.navbar {
+    padding: 25px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-main);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+nav ul li a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 17px;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: var(--accent);
+}
+
+.nav-icons i {
+    font-size: 22px;
+    margin-left: 18px;
+    color: var(--text-dark);
+}
+
+
+.story-hero {
+    text-align: center;
+    padding: 60px 6% 40px;
+}
+
+.story-hero h1 {
+    font-size: 56px;
+    color: var(--text-dark);
+}
+
+.story-hero p {
+    max-width: 700px;
+    margin: 15px auto;
+    color: var(--text-light);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+.mission-section {
+    padding: 80px 6%;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.mission-text {
+    flex: 1 1 500px;
+}
+
+.mission-text h2 {
+    font-size: 36px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.mission-text p {
+    color: var(--text-light);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.mission-image {
+    flex: 1 1 450px;
+}
+
+.mission-image img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.values-section {
+    text-align: center;
+    padding: 40px 6% 80px;
+}
+
+.values-title {
+    font-size: 42px;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.value-card {
+    background: var(--bg-secondary);
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transition: 0.3s;
+}
+
+.value-card:hover {
+    transform: translateY(-4px);
+}
+
+.value-card i {
+    font-size: 32px;
+    color: var(--accent);
+}
+
+.value-card h3 {
+    margin: 15px 0 10px;
+    color: var(--text-dark);
+}
+
+.value-card p {
+    color: var(--text-light);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+.team-section {
+    padding: 40px 6% 80px;
+}
+
+.team-title {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.team-card {
+    background: var(--bg-secondary);
+    border-radius: 14px;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+.team-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+.team-card h3 {
+    font-size: 20px;
+    margin-top: 15px;
+    color: var(--text-dark);
+}
+
+.team-card .role {
+    color: var(--accent);
+    margin: 5px 0;
+}
+
+.team-card .desc {
+    color: var(--text-light);
+    font-size: 15px;
+    max-width: 90%;
+    margin: auto;
+}
+
+
+.stats-section {
+    background: var(--accent);
+    color: white;
+    padding: 45px 0;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.stat p {
+    font-size: 15px;
+}
+
+
+@media (max-width: 1000px) {
+    .values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .team-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    .mission-section {
+        flex-direction: column;
+    }
+}
+img{
+    transition: transform 0.3s;
+}
+img:hover{
+    transform:scale(1.05);
+}
+
+   </style>
+</head>
+
+<body>
+
+
+    <header class="navbar">
+        <div class="logo">BookEcho</div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a class="active" href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-icons">
+         <i class="ri-search-line"></i>
+            <a href="info.html"><i class="ri-user-line"></i></a>
+            <a href="cart.html"><i class="ri-shopping-cart-line"></i></a>
+
+        </div>
+    </header>
+
+
+    <section class="story-hero">
+        <h1>Our Story</h1>
+        <p>
+            BookEcho was born from a simple belief: that every book has the power to echo 
+            through time, touching lives and transforming perspectives.
+        </p>
+    </section>
+
+
+    <section class="mission-section">
+
+        <div class="mission-text">
+            <h2>Our Mission</h2>
+            <p>
+                We believe in the transformative power of stories. Our mission is to curate a 
+                collection of books that don’t just sit on shelves, but echo through the hearts 
+                and minds of readers for years to come.
+            </p>
+
+            <p>
+                Every book in our collection is carefully selected by our team of literary 
+                experts who understand that reading is not just a pastime—it’s a journey of 
+                discovery, empathy, and growth.
+            </p>
+        </div>
+
+        <div class="mission-image">
+            <img src="mission.jpg" alt="Bookshelf">
+        </div>
+
+    </section>
+
+   
+    <section class="values-section">
+        <h2 class="values-title">Our Values</h2>
+
+        <div class="values-grid">
+
+            <div class="value-card">
+                <i class="ri-heart-line"></i>
+                <h3>Passion</h3>
+                <p>Every book is chosen with love and dedication to quality literature.</p>
+            </div>
+
+            <div class="value-card">
+                <i class="ri-community-line"></i>
+                <h3>Community</h3>
+                <p>Building a community of readers who share and celebrate stories.</p>
+            </div>
+
+            <div class="value-card">
+                <i class="ri-lightbulb-line"></i>
+                <h3>Discovery</h3>
+                <p>Helping readers find their next favorite book and new perspectives.</p>
+            </div>
+
+            <div class="value-card">
+                <i class="ri-star-line"></i>
+                <h3>Excellence</h3>
+                <p>Maintaining the highest standards in curation and customer service.</p>
+            </div>
+
+        </div>
+    </section>
+
+    
+    <section class="team-section">
+
+        <h2 class="team-title">Meet Our Team</h2>
+
+        <div class="team-grid">
+
+            <div class="team-card">
+                <img src="team1.jpg" alt="">
+                <h3>Sarah Mitchell</h3>
+                <p class="role">Founder & Curator</p>
+                <p class="desc">Literary enthusiast with 15 years in publishing</p>
+            </div>
+
+            <div class="team-card">
+                <img src="team2.jpg" alt="">
+                <h3>James Chen</h3>
+                <p class="role">Head of Acquisitions</p>
+                <p class="desc">Finding hidden gems and timeless classics</p>
+            </div>
+
+            <div class="team-card">
+                <img src="team3.jpg" alt="">
+                <h3>Emma Rodriguez</h3>
+                <p class="role">Community Manager</p>
+                <p class="desc">Connecting readers with stories that matter</p>
+            </div>
+
+        </div>
+
+    </section>
+
+   
+    <section class="stats-section">
+
+        <div class="stat">
+            <h3>10K+</h3>
+            <p>Books Curated</p>
+        </div>
+
+        <div class="stat">
+            <h3>50K+</h3>
+            <p>Happy Readers</p>
+        </div>
+
+        <div class="stat">
+            <h3>5 Years</h3>
+            <p>In Business</p>
+        </div>
+
+        <div class="stat">
+            <h3>98%</h3>
+            <p>Satisfaction Rate</p>
+        </div>
+
+    </section>
+
+</body>
+</html>
+

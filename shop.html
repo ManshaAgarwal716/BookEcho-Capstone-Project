@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookEcho – Our Collection</title>
+
+    <style>
+
+:root {
+    --bg-main: #F8F4EC;           
+    --bg-secondary: #FFFFFF;      
+    --accent: #C7A27A;            
+    --accent-light: #E5D4C3;      
+    --text-dark: #4A3F35;         
+    --text-light: #6F6257;        
+    --pill-bg: #F3F0EA;           
+    --pill-active: #C7A27A;       
+}
+
+
+body {
+    font-family: "Georgia", serif;
+    background: var(--bg-main);
+    margin: 0;
+    color: var(--text-dark);
+}
+
+
+.navbar {
+    padding: 25px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-main);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    padding: 0;
+}
+
+nav ul li a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:active {
+    color: var(--accent);
+}
+
+.nav-icons {
+    display: flex;
+    gap: 18px;
+    font-size: 22px;
+    color: var(--text-dark);
+}
+
+.collection {
+    padding: 40px 6%;
+}
+
+.collection h1 {
+    font-size: 56px;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+
+.filter-box {
+    background: var(--bg-secondary);
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    margin-bottom: 25px;
+}
+
+
+.filter-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: var(--text-light);
+}
+
+
+.filter-group {
+    margin-bottom: 30px;
+}
+
+.filter-group h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+
+.options {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.option {
+    padding: 10px 22px;
+    background: var(--pill-bg);
+    border: 1px solid #d9d3c9;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.25s ease;
+    color: var(--text-dark);
+}
+
+.option:hover {
+    background: var(--accent-light);
+}
+
+.option.active {
+    background: var(--pill-active);
+    border-color: var(--pill-active);
+    color: white;
+}
+
+
+.count {
+    margin-top: 10px;
+    font-size: 16px;
+    color: var(--text-light);
+}
+
+
+@media (max-width: 768px) {
+    
+    nav ul {
+        display: none;
+    }
+
+    .collection h1 {
+        font-size: 40px;
+    }
+
+    .filter-box {
+        padding: 25px;
+    }
+}
+
+.book-grid-section {
+    padding: 0px 6% 60px;
+}
+
+.book-grid-section .count {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+
+.book-card {
+    background: var(--bg-secondary);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+}
+
+
+.tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: white;
+}
+
+.tag.eco {
+    background: var(--accent);
+}
+
+
+.book-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.book-card h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    color: var(--text-dark);
+}
+
+.book-card .author {
+    color: var(--text-light);
+    font-size: 15px;
+}
+
+.rating {
+    margin: 6px 0;
+    color: #d6a85a;
+}
+
+.price {
+    font-weight: bold;
+    margin: 6px 0;
+    font-size: 17px;
+    color: var(--text-dark);
+}
+
+
+.add-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    background: var(--accent-light);
+    color: var(--text-dark);
+}
+
+
+@media (max-width: 1200px) {
+    .book-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.footer {
+    background: var(--bg-secondary); 
+    padding: 70px 6% 40px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 60px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.footer-column h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.footer-column h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.footer-column p {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.footer-column a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-light);
+    margin-bottom: 14px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.footer-column a:hover {
+    color: var(--accent);
+}
+img{
+    transition:transform 0.3s;
+}
+img:hover{
+    transform:scale(1.05);
+}
+
+.social-icons {
+    display: flex;
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.social-icons i {
+    font-size: 22px;
+    color: var(--text-light);
+    transition: 0.3s;
+}
+
+.social-icons i:hover {
+    color: var(--accent);
+}
+
+
+.newsletter-form {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 12px 18px;
+    background: var(--bg-main);
+    border: 1px solid var(--accent-light);
+    border-radius: 8px;
+    color: var(--text-dark);
+    font-size: 15px;
+}
+
+.newsletter-input::placeholder {
+    color: #a89e93;
+}
+
+.join-btn {
+    padding: 12px 24px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.join-btn:hover {
+    background: var(--accent-light);
+    color: var(--text-dark);
+}
+
+
+.footer-line {
+    margin: 40px auto 20px;
+    border: none;
+    border-top: 1px solid var(--accent-light);
+    width: 100%;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 15px;
+}
+
+
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    .newsletter-form {
+        flex-direction: column;
+    }
+    .join-btn {
+        width: 100%;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+ 
+    <header class="navbar">
+        <div class="logo">BookEcho</div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-icons">
+            <i class="ri-search-line"></i>
+            <a href="info.html"><i class="ri-user-line"></i></a>
+            <a href="cart.html"><i class="ri-shopping-cart-line"></i></a>
+
+        </div>
+    </header>
+
+
+    <section class="collection">
+        <h1>Our Collection</h1>
+        <p class="subtitle">Explore our carefully curated selection of 12 books</p>
+
+      
+        <div class="filter-box">
+
+            <div class="filter-title">
+                <img src="https://img.icons8.com/ios/50/6f7b63/filter--v1.png" width="22">
+                <span>Filter & Sort</span>
+            </div>
+
+   
+            <div class="filter-group">
+                <h3>Genre</h3>
+                <div class="options">
+                    <button class="option active">All</button>
+                    <button class="option">Fiction</button>
+                    <button class="option">Non-Fiction</button>
+                    <button class="option">Mystery</button>
+                    <button class="option">Romance</button>
+                    <button class="option">Science Fiction</button>
+                    <button class="option">Biography</button>
+                </div>
+            </div>
+
+            
+            <div class="filter-group">
+                <h3>Format</h3>
+                <div class="options">
+                    <button class="option active">All</button>
+                    <button class="option">Hardcover</button>
+                    <button class="option">Paperback</button>
+                    <button class="option">eBook</button>
+                </div>
+            </div>
+
+    
+            <div class="filter-group">
+                <h3>Price Range</h3>
+                <div class="options">
+                    <button class="option active">All</button>
+                    <button class="option">Under $15</button>
+                    <button class="option">$15–$25</button>
+                    <button class="option">$25–$40</button>
+                    <button class="option">Over $40</button>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="count">Showing 12 of 12 books</p>
+    </section>
+<section class="book-grid-section">
+
+
+    <div class="book-grid">
+
+
+        <div class="book-card">
+            <div class="tag eco">Eco Friendly</div>
+            <img src="img1.jpg" alt="The Midnight Library">
+            <h3>The Midnight Library</h3>
+            <p class="author">Matt Haig</p>
+            <div class="rating">⭐⭐⭐⭐☆</div>
+            <p class="price">$24.99</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+        <div class="book-card">
+            <img src="img2.jpg" alt="Atomic Habits">
+            <h3>Atomic Habits</h3>
+            <p class="author">James Clear</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">$27.99</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+        <div class="book-card">
+            <img src="img3.jpg" alt="The Silent Patient">
+            <h3>The Silent Patient</h3>
+            <p class="author">Alex Michaelides</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">$22.00</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+        <div class="book-card">
+            <img src="img4.jpg" alt="Normal People">
+            <h3>Normal People</h3>
+            <p class="author">Sally Rooney</p>
+            <div class="rating">⭐⭐⭐⭐☆</div>
+            <p class="price">$19.99</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+        <div class="book-card">
+            <div class="tag eco">Eco Friendly</div>
+            <img src="img5.jpg" alt="Project Hail Mary">
+            <h3>Project Hail Mary</h3>
+            <p class="author">Andy Weir</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">$25.99</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+        <div class="book-card">
+            <img src="img6.jpg" alt="Educated">
+            <h3>Educated</h3>
+            <p class="author">Tara Westover</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">$26.50</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+        <div class="book-card">
+            <img src="img7.jpg" alt="Evelyn Hugo">
+            <h3>The Seven Husbands of Evelyn Hugo</h3>
+            <p class="author">Taylor Jenkins Reid</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">$23.99</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+        <div class="book-card">
+            <img src="img8.jpg" alt="Sapiens">
+            <h3>Sapiens</h3>
+            <p class="author">Yuval Noah Harari</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">$29.99</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+        <div class="book-card">
+            <div class="tag eco">Eco Friendly</div>
+            <img src="img9.jpg" alt="Murder Club">
+            <h3>The Thursday Murder Club</h3>
+            <p class="author">Richard Osman</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">$23.99</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+        <div class="book-card">
+            <img src="img10.jpg" alt="Vacation">
+            <h3>People We Meet on Vacation</h3>
+            <p class="author">Emily Henry</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">$21.99</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+        <div class="book-card">
+            <img src="img11.jpg" alt="Psychology of Money">
+            <h3>The Psychology of Money</h3>
+            <p class="author">Morgan Housel</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">$35.99</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+        <div class="book-card">
+            <img src="img12.jpg" alt="Becoming">
+            <h3>Becoming</h3>
+            <p class="author">Michelle Obama</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">$32.99</p>
+            <button class="add-btn">Add</button>
+        </div>
+
+    </div>
+</section>
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div class="footer-column">
+            <h2>BookEcho</h2>
+            <p>Curating stories that resonate, echo, and transform the way you see the world.</p>
+
+            <div class="social-icons">
+                <a href="#"><i class="ri-facebook-line"></i></a>
+                <a href="#"><i class="ri-instagram-line"></i></a>
+                <a href="#"><i class="ri-twitter-line"></i></a>
+                <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <a href="#">Shop All Books</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Staff Picks</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Customer Service</h3>
+            <a href="#">Shipping Info</a>
+            <a href="#">Returns</a>
+            <a href="#">FAQ</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Newsletter</h3>
+            <p>Subscribe for book recommendations and exclusive offers.</p>
+
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email" class="newsletter-input" required>
+                <button type="submit" class="join-btn">Join</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <hr class="footer-line">
+
+    <p class="footer-bottom">
+        © 2025 BookEcho. All rights reserved. Designed with love for book lovers.
+    </p>
+
+</footer>
+
+
+</body>
+</html>

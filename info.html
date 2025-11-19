@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookEcho Login</title>
+<style>
+    /* Background blurred image */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.background {
+  background-image: url('your-library-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+}
+
+/* Modal */
+.modal {
+  width: 380px;
+  margin: 4rem auto;
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #1f2d3d;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #1d3557;
+}
+
+/* Form labels + input */
+label {
+  font-size: 13px;
+  display: block;
+  margin-top: 15px;
+  color: #1f2d3d;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #f3eadc;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Remember + Forgot */
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.options .forgot {
+  color: #7a7a7a;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Sign in button */
+.signin-btn {
+  width: 100%;
+  margin-top: 18px;
+  background: #9ead97;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* Signup text */
+.signup-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.signup-text a {
+  color: #1d3557;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* Social buttons */
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-buttons button {
+  width: 48%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.google {
+  background: #1d3557;
+  color: white;
+}
+
+.facebook {
+  background: #0a2540;
+  color: white;
+}
+a{
+  color:#0a2540;
+  text-decoration:none;
+}
+
+</style>
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="modal">
+
+  <div class="modal-header">
+    <h2>Welcome Back</h2>
+    <button class="close-btn" ><a href="index.html">&times;</a></button>
+  </div>
+
+  <form >
+    <label>Email</label>
+    <input type="email" placeholder="you@example.com" required>
+
+    <label>Password</label>
+    <input type="password" placeholder="••••••••" required>
+
+    <div class="options">
+      <label class="remember">
+        <input type="checkbox"> Remember me
+      </label>
+
+      <a href="#" class="forgot" >Forgot password?</a>
+    </div>
+
+    <button type="submit" class="signin-btn">Sign In</button>
+  </form>
+
+  <p class="signup-text">
+    Don’t have an account? 
+    <a href="signup.html">Sign Up</a>
+  </p>
+
+  <div class="divider">Or continue with</div>
+
+  <div class="social-buttons">
+    <button class="google">Google</button>
+    <button class="facebook">Facebook</button>
+  </div>
+
+</div>
+
+</body>
+</html>
