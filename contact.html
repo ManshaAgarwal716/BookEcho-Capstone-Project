@@ -242,6 +242,14 @@ a{
 
         </div>
     </header>
+    <div id="search-bar" style="display:none; text-align:center; margin-top:10px;">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Type to search..."
+      style="padding:8px; width:60%; border:1px solid #ccc;"
+    >
+  </div>
 
   
     <section class="contact-hero">
@@ -359,6 +367,35 @@ a{
         </div>
 
     </section>
+    <script>
+        const navLinks = document.querySelectorAll("nav ul li a");
+navLinks.forEach(link => {
+  link.addEventListener("mouseover", () => { link.style.opacity = "0.7"; });
+  link.addEventListener("mouseout", () => { link.style.opacity = "1"; });
+});
+
+const searchIcon = document.querySelector(".ri-search-line");
+const searchBar = document.getElementById("search-bar");
+const searchInput = document.getElementById("search-input");
+
+let searchOpen = false;
+
+searchIcon.addEventListener("click", () => {
+  if (searchOpen) {
+    searchBar.style.display = "none";
+    searchOpen = false;
+  } else {
+    searchBar.style.display = "block";
+    searchInput.focus();
+    searchOpen = true;
+  }
+});
+
+searchInput.addEventListener("change", () => {
+  console.log(searchInput.value);
+});
+</script>
+
 
 </body>
 </html>

@@ -111,6 +111,10 @@ nav ul li a:hover {
         font-size: 70px;
     }
 }
+a{
+    color: var(--text-dark);
+    text-decoration: none;
+}
 
    </style>
 </head>
@@ -129,11 +133,20 @@ nav ul li a:hover {
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <div id="search-bar" style="display:none; text-align:center; margin-top:10px;">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Type to search..."
+      style="padding:8px; width:60%; border:1px solid #ccc;"
+    >
+  </div>
 
         <div class="nav-icons">
             <i class="ri-search-line"></i>
-            <i class="ri-user-line"></i>
-            <i class="ri-shopping-cart-line"><a href="cart.html"></a></i>
+            <a href="info.html"><i class="ri-user-line"></i></a>
+            <a href="cart.html"><i class="ri-shopping-cart-line"></i></a>
+
         </div>
     </header>
 
@@ -146,7 +159,58 @@ nav ul li a:hover {
         <p>Looks like you haven't added any books to your cart yet.</p>
 
         <a href="shop.html" class="continue-btn">Continue Shopping</a>
+
     </section>
+<script>
+const navLinks = document.querySelectorAll("nav ul li a");
+navLinks.forEach(link => {
+  link.addEventListener("mouseover", () => { 
+    link.style.opacity = "0.7"; 
+  });
+  link.addEventListener("mouseout", () => { 
+    link.style.opacity = "1"; 
+  });
+});
+
+const searchIcon = document.querySelector(".ri-search-line");
+const searchBar = document.getElementById("search-bar");
+const searchInput = document.getElementById("search-input");
+let searchOpen = false;
+
+searchIcon.addEventListener("click", () => {
+  if (searchOpen) {
+    searchBar.style.display = "none";
+    searchOpen = false;
+  } else {
+    searchBar.style.display = "block";
+    searchInput.focus();
+    searchOpen = true;
+  }
+});
+
+searchInput.addEventListener("change", () => {
+  console.log(searchInput.value);
+});
+
+const logo = document.querySelector(".logo");
+logo.addEventListener("mouseover", () => {
+  logo.style.transform = "scale(1.05)";
+});
+logo.addEventListener("mouseout", () => {
+  logo.style.transform = "scale(1)";
+});
+const emptyText = document.querySelector(".empty-cart p");
+const emptyMessages = [
+  "Start adding your favorite books!",
+  "Your reading adventure awaits!",
+  "Nothing here yet — but that can change!",
+  "The best stories are one click away!"
+];
+const randomIndex = Math.floor(Math.random() * emptyMessages.length);
+emptyText.innerText = emptyMessages[randomIndex];
+</script>
+
+
 
 </body>
 </html>

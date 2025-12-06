@@ -430,25 +430,32 @@ img:hover{
 <body>
 
  
-    <header class="navbar">
-        <div class="logo">BookEcho</div>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a class="active" href="shop.html">Shop</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="nav-icons">
+   <div class="back">
+  <header class="navbar">
+    <div class="logo">BookEcho</div>
+    <nav>
+      <ul>
+        <li><a  href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-icons">
             <i class="ri-search-line"></i>
             <a href="info.html"><i class="ri-user-line"></i></a>
             <a href="cart.html"><i class="ri-shopping-cart-line"></i></a>
 
-        </div>
-    </header>
+    </div>
+  </header>
+    <div id="search-bar" style="display:none; text-align:center; margin-top:10px;">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Type to search..."
+      style="padding:8px; width:60%; border:1px solid #ccc;"
+    >
+  </div>
 
 
     <section class="collection">
@@ -623,6 +630,20 @@ img:hover{
 
     </div>
 </section>
+<button id="up-btn" style="
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 16px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #C7A27A;
+  color: white;
+  display: none;
+  z-index: 1000;
+">↑</button>
 <footer class="footer">
 
     <div class="footer-content">
@@ -675,6 +696,37 @@ img:hover{
     </p>
 
 </footer>
+
+<script>
+const allOptions = document.querySelectorAll(".option");
+allOptions.forEach(option => {
+    option.addEventListener("click", () => {
+        allOptions.forEach(o => o.classList.remove("active"));
+        option.classList.add("active");
+    });
+});
+
+const addButtons = document.querySelectorAll(".add-btn");
+const titles = document.querySelectorAll(".book-card h3");
+
+addButtons.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+        console.log("Added:", titles[i].innerText);
+    });
+});
+
+
+const upBtn = document.getElementById("up-btn");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) upBtn.style.display = "block";
+    else upBtn.style.display = "none";
+});
+
+upBtn.addEventListener("click", () => {
+    document.documentElement.scrollTop = 0;
+});
+</script>
 
 
 </body>
