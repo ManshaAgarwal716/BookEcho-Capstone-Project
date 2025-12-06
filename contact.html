@@ -394,6 +394,38 @@ searchIcon.addEventListener("click", () => {
 searchInput.addEventListener("change", () => {
   console.log(searchInput.value);
 });
+        const contactForm = document.querySelector(".form-card form");
+        const firstNameInput = contactForm.querySelector(".row .input-group:first-child input");
+
+        contactForm.addEventListener("submit", (event) => {
+          event.preventDefault(); 
+
+          const name = firstNameInput.value.trim() || "reader";
+
+          alert("Thank you, " + name + "! Your message has been received. ");
+
+          contactForm.reset(); 
+        });
+        const faqQuestions = document.querySelectorAll(".faq-card h4");
+        const faqAnswers = document.querySelectorAll(".faq-card p");
+        faqAnswers.forEach((p) => {
+          p.style.display = "none";
+        });
+
+        faqQuestions.forEach((q) => {
+          q.style.cursor = "pointer";
+          q.addEventListener("click", () => {
+            const answer = q.nextElementSibling;
+            if (!answer) return;
+
+            if (answer.style.display === "none") {
+              answer.style.display = "block";
+            } else {
+              answer.style.display = "none";
+            }
+          });
+        });
+
 </script>
 
 
